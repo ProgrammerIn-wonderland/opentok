@@ -19,15 +19,28 @@ using namespace std;
 using namespace nlohmann;
 int main(int argc, char *argv[]) {
 
+    if (argc < 2) {
+        cout << "no URL specified, please try again with a URL as an argument" << endl;
+        return 0;
+    }
 	alicenet request; // get HTML page
 	request.url = argv[1];
 	request.type = "GET"; // Optional
 	request.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36";
 	request.makeRequest();
+    try {
+        auto jsonData = json::parse(get_str_between_two_str(request.responseData,"window['SIGI_STATE']=",";window['SIGI_RETRY']")); // get & parse JSON from page
+        cout <<(string) jsonData["ItemList"]["video"]["preloadList"][0]["url"]; // get URL from json and send it to stdout
+    } catch (json::parse_error& e) {
 
-    auto jsonData = json::parse(get_str_between_two_str(request.responseData,"window['SIGI_STATE']=",";window['SIGI_RETRY']")); // get & parse JSON from page
+        cerr << "Something went wrong :("<< endl << "details are provided below" << endl << endl;
+        cerr << "message: " << e.what() << '\n'
+                  << "exception id: " << e.id << '\n'
+                  << "byte position of error: " << e.byte << std::endl;
+    }
 
-	cout <<(string) jsonData["ItemList"]["video"]["preloadList"][0]["url"]; // get URL from json and send it to stdout
+
+
 	
 }
 
