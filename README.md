@@ -1,6 +1,11 @@
 # Freetok
-A free libre mp4 url extractor for tiktok links
+A free libre mp4 url extractor for tiktok links, written in mutliple languages
 
 ### Working implementations
-Currently only the C++ and python implementations are working, it seems as if tiktok blocks requests from any non-curl client regardless of useragent
+* [C++](https://github.com/ProgrammerIn-wonderland/freetok/tree/main/CPP)
+* [Python](https://github.com/ProgrammerIn-wonderland/freetok/tree/main/python)
+* [nodejs](https://github.com/ProgrammerIn-wonderland/freetok/tree/main/nodejs)
 
+
+### Work in progress 
+* browserjs 
