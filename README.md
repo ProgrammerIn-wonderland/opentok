@@ -9,3 +9,6 @@ A free libre mp4 url extractor for tiktok links, written in mutliple languages
 
 ### Work in progress 
 * browserjs 
+
+Official AUR package
+https://aur.archlinux.org/packages/freetok-cpp-git
