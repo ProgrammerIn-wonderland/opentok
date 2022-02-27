@@ -28,4 +28,4 @@ jsonString = body[start:end]
 jsonData = json.loads(jsonString) # parse json data
 
 # print tiktok video url parsed from json data
-print(jsonData["ItemList"]["video"]["preloadList"][0]["url"])
+sys.stdout.write(jsonData["ItemList"]["video"]["preloadList"][0]["url"])
