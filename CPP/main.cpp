@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
 	request.userAgent = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36";
 	request.makeRequest();
     try {
-        auto jsonData = json::parse(get_str_between_two_str(request.responseData,"window['SIGI_STATE']=",";window['SIGI_RETRY']")); // get & parse JSON from page
+        auto jsonData = json::parse(get_str_between_two_str(request.responseData,"script id=\"SIGI_STATE\" type=\"application/json\">","</script><script id=\"SIGI_RETRY\" type=\"application/json\">")); // get & parse JSON from page
         cout <<(string) jsonData["ItemList"]["video"]["preloadList"][0]["url"]; // get URL from json and send it to stdout
     } catch (json::parse_error& e) {
 

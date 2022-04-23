@@ -7,7 +7,7 @@ curl.setOpt(Curl.option.FOLLOWLOCATION, true)
 curl.setOpt(Curl.option.USERAGENT, "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3729.157 Safari/537.36")
 
 curl.on( 'end', function( statusCode, body, headers ) {
-    const jsonstr = body.split("window['SIGI_STATE']=").pop().split(";window['SIGI_RETRY']")[0]; 
+    const jsonstr = body.split("script id=\"SIGI_STATE\" type=\"application/json\">").pop().split("</script><script id=\"SIGI_RETRY\" type=\"application/json\">")[0]; 
     jsonData = JSON.parse(jsonstr)
     process.stdout.write(jsonData["ItemList"]["video"]["preloadList"][0]["url"])
     this.close();

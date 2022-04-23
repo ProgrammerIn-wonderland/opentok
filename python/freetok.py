@@ -21,9 +21,10 @@ crl.close()
 
 # get json data inbetween two delimiters
 body = b_obj.getvalue().decode('utf8')
-start = body.find("window['SIGI_STATE']=") + len("window['SIGI_STATE']=")
-end = body.find(";window['SIGI_RETRY']")
+start = body.find("script id=\"SIGI_STATE\" type=\"application/json\">") + len("script id=\"SIGI_STATE\" type=\"application/json\">")
+end = body.find("</script><script id=\"SIGI_RETRY\" type=\"application/json\">")
 jsonString = body[start:end]
+
 
 jsonData = json.loads(jsonString) # parse json data
 
