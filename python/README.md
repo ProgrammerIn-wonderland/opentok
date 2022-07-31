@@ -1,4 +1,4 @@
-# Freetok python
+# Opentok python
 
 This is the folder containing everything you need to use freetok.py
 

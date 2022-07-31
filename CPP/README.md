@@ -1,4 +1,4 @@
-# Freetok C++
+# Opentok C++
 
 This is the folder containing everything you need to use freetok for C++
 
